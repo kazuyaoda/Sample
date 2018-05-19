@@ -7,12 +7,24 @@
 //
 
 import UIKit
+import WebKit
 
 class ViewController: UIViewController {
 
+    var webView: WKWebView!
+    private var _observer = [NSKeyValueObservation]()
+    
+    override func loadView() {
+        let webConfiguration = WKWebViewConfiguration()
+        webView = WKWebView(frame: .zero, configuration: webConfiguration)
+        self.view = webView
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        _observer.append(webView.observe(\.estimatedProgress, options: .new) { _, change in
+            print("Progress: \(String(describing: change.newValue))")
+        })
     }
 
     override func didReceiveMemoryWarning() {
