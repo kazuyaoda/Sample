@@ -21,4 +21,9 @@ class LocalFileRepositoryTest: XCTestCase {
         let text = String(data: object.data!, encoding: .utf8)
         XCTAssertEqual(sampleText, text)
     }
+    
+    func testGetAll() {
+        let repository = LocalFileRepository()
+        _ = repository.getAll()
+    }
 }

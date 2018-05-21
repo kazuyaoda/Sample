@@ -5,8 +5,8 @@ class LocalFileRepository {
     func save(fileName: String, data: Data) -> LocalObject {
         
         let files = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)
-        let documentsPath1 = NSURL(fileURLWithPath: files[0])
-        let savePath = documentsPath1.appendingPathComponent(getDirName())
+        let documentsPath = NSURL(fileURLWithPath: files[0])
+        let savePath = documentsPath.appendingPathComponent("data")?.appendingPathComponent(getDirName())
         print(savePath!.path)
         do {
             if !FileManager.default.fileExists(atPath: savePath!.path) {
@@ -26,6 +26,56 @@ class LocalFileRepository {
         } catch let error {
             NSLog("Unable to create directory \(error)")
             fatalError("\(error)")
+        }
+    }
+    
+    func getAll() -> [LocalObject]? {
+        
+        if let documentDirectory = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first {
+            
+            do {
+                let documentsPath = NSURL(fileURLWithPath: documentDirectory)
+                let savePath = documentsPath.appendingPathComponent("data")
+                let items = try FileManager.default.contentsOfDirectory(atPath: String(contentsOf: savePath!))
+                var isDir : ObjCBool = false
+                
+                items.forEach { dir in
+                    let path = savePath?.appendingPathComponent(dir)
+                    do {
+                        try FileManager.default.fileExists(atPath: String(contentsOf: path!), isDirectory: &isDir)
+                        if !isDir.boolValue {
+                            
+                        }
+                    } catch {
+                        
+                    }
+                }
+                
+            } catch let error {
+                print(error)
+            }
+        }
+        return nil
+    }
+    
+    private func getFilePaths(paths: [String]) -> [String] {
+        let documentDirectory = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first
+            
+        let documentsPath = NSURL(fileURLWithPath: documentDirectory!)
+        let savePath = documentsPath.appendingPathComponent("data")
+        let items = try FileManager.default.contentsOfDirectory(atPath: String(contentsOf: savePath!))
+        var isDir : ObjCBool = false
+        
+        paths.forEach { dir in
+            let path = savePath?.appendingPathComponent(dir)
+            do {
+                try FileManager.default.fileExists(atPath: String(contentsOf: path!), isDirectory: &isDir)
+                if !isDir.boolValue {
+                    
+                }
+            } catch {
+                
+            }
         }
     }
     
