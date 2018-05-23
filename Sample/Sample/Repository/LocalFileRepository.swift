@@ -58,26 +58,7 @@ class LocalFileRepository {
         return nil
     }
     
-    private func getFilePaths(paths: [String]) -> [String] {
-        let documentDirectory = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first
-            
-        let documentsPath = NSURL(fileURLWithPath: documentDirectory!)
-        let savePath = documentsPath.appendingPathComponent("data")
-        let items = try FileManager.default.contentsOfDirectory(atPath: String(contentsOf: savePath!))
-        var isDir : ObjCBool = false
-        
-        paths.forEach { dir in
-            let path = savePath?.appendingPathComponent(dir)
-            do {
-                try FileManager.default.fileExists(atPath: String(contentsOf: path!), isDirectory: &isDir)
-                if !isDir.boolValue {
-                    
-                }
-            } catch {
-                
-            }
-        }
-    }
+
     
     private func getDirName() -> String {
         let now = Date() // 現在日時の取得

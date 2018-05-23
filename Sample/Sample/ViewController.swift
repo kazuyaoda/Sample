@@ -101,6 +101,69 @@ extension ViewController: WKNavigationDelegate {
         backButton.isHidden = webView.canGoBack ? false : true
         forwardButton.isHidden = webView.canGoForward ? false : true
     }
+    
+    func webView(_ webView: WKWebView,
+                 decidePolicyFor navigationAction: WKNavigationAction,
+                 decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
+        
+        guard let url = navigationAction.request.url else {
+            decisionHandler(.cancel)
+            return
+        }
+        
+        print(url)
+        
+        if url.absoluteString.range(of: "//itunes.apple.com/") != nil {
+            if UIApplication.shared.responds(to: #selector(UIApplication.open(_:options:completionHandler:))) {
+                UIApplication.shared.open(url,
+                                          options: [UIApplicationOpenURLOptionUniversalLinksOnly: false],
+                                          completionHandler: { (finished: Bool) in
+                                            print(finished)
+                })
+            } else {
+                // iOS 10 で deprecated 必要なら以降のopenURLも振り分ける
+                // iOS 10以降は UIApplication.shared.open(url, options: [:], completionHandler: nil)
+                UIApplication.shared.open(url, options: [:], completionHandler: nil)
+            }
+            decisionHandler(.cancel)
+            return
+        } else if !url.absoluteString.hasPrefix("http://")
+            && !url.absoluteString.hasPrefix("https://") {
+            // URL Schemeをinfo.plistで公開しているアプリか確認
+            if UIApplication.shared.canOpenURL(url) {
+                UIApplication.shared.open(url, options: [:], completionHandler: nil)
+                decisionHandler(.cancel)
+                return
+            }
+            //                // 確認せずとりあえず開く
+            //                UIApplication.shared.openURL(url)
+            //                decisionHandler(.cancel)
+            //                return
+        }
+        
+        switch navigationAction.navigationType {
+        case .linkActivated:
+            if navigationAction.targetFrame == nil
+                || !navigationAction.targetFrame!.isMainFrame {
+                // <a href="..." target="_blank"> が押されたとき
+                webView.load(URLRequest(url: url))
+                decisionHandler(.cancel)
+                return
+            }
+        case .backForward:
+            break
+        case .formResubmitted:
+            break
+        case .formSubmitted:
+            break
+        case .other:
+            break
+        case .reload:
+            break
+        } // 全要素列挙した場合はdefault不要 (足りない要素が追加されたときにエラーを吐かせる目的)
+        
+        decisionHandler(.allow)
+    }
 }
 
 extension ViewController: WKUIDelegate {
