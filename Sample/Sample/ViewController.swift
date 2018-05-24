@@ -70,7 +70,7 @@ class ViewController: UIViewController {
         backButton.layer.opacity = 0.6
         backButton.layer.cornerRadius = 5.0
         backButton.addTarget(self, action: #selector(goBack), for: .touchUpInside)
-        backButton.isHidden = true
+//        backButton.isHidden = true
         webView.addSubview(backButton)
         print("\(webView.frame.size)")
         print("\(backButton.frame)")
@@ -88,7 +88,8 @@ class ViewController: UIViewController {
     }
     
     @objc private func goBack() {
-        webView.goBack()
+        let viewController = SampleViewController()
+        present(viewController, animated: true, completion: nil)
     }
     
     @objc private func goForward() {
@@ -98,8 +99,8 @@ class ViewController: UIViewController {
 
 extension ViewController: WKNavigationDelegate {
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
-        backButton.isHidden = webView.canGoBack ? false : true
-        forwardButton.isHidden = webView.canGoForward ? false : true
+//        backButton.isHidden = webView.canGoBack ? false : true
+//        forwardButton.isHidden = webView.canGoForward ? false : true
     }
     
     func webView(_ webView: WKWebView,
