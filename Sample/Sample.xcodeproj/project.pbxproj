@@ -19,6 +19,8 @@
 		E534212220ADBCFD001A8CD7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E534212020ADBCFD001A8CD7 /* LaunchScreen.storyboard */; };
 		E534212D20ADBCFD001A8CD7 /* SampleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E534212C20ADBCFD001A8CD7 /* SampleTests.swift */; };
 		E534213820ADBCFD001A8CD7 /* SampleUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E534213720ADBCFD001A8CD7 /* SampleUITests.swift */; };
+		E5932C6020B993FB00BF7D5D /* DeviceUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5932C5F20B993FB00BF7D5D /* DeviceUtil.swift */; };
+		E5932C6220B9947F00BF7D5D /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5932C6120B9947F00BF7D5D /* SystemConfiguration.framework */; };
 		E595038120B05AE0007993B1 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = E595038020B05AE0007993B1 /* User.swift */; };
 		E595038320B05B1F007993B1 /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = E595038220B05B1F007993B1 /* Repository.swift */; };
 		E595038520B05C43007993B1 /* SearchResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E595038420B05C43007993B1 /* SearchResponse.swift */; };
@@ -73,6 +75,8 @@
 		E534213320ADBCFD001A8CD7 /* SampleUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SampleUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E534213720ADBCFD001A8CD7 /* SampleUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleUITests.swift; sourceTree = "<group>"; };
 		E534213920ADBCFD001A8CD7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E5932C5F20B993FB00BF7D5D /* DeviceUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceUtil.swift; sourceTree = "<group>"; };
+		E5932C6120B9947F00BF7D5D /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		E595038020B05AE0007993B1 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		E595038220B05B1F007993B1 /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
 		E595038420B05C43007993B1 /* SearchResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResponse.swift; sourceTree = "<group>"; };
@@ -94,6 +98,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E5932C6220B9947F00BF7D5D /* SystemConfiguration.framework in Frameworks */,
 				07786642F64E9F16069F9E29 /* Pods_Sample.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -118,6 +123,7 @@
 		6A85AEE903654589A040754F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				E5932C6120B9947F00BF7D5D /* SystemConfiguration.framework */,
 				8EF9966487B7E95416671AA8 /* Pods_Sample.framework */,
 			);
 			name = Frameworks;
@@ -135,6 +141,7 @@
 			isa = PBXGroup;
 			children = (
 				E516597E20B2F31300B37BA3 /* Date+CommonUtil.swift */,
+				E5932C5F20B993FB00BF7D5D /* DeviceUtil.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -480,6 +487,7 @@
 				E534211820ADBCFC001A8CD7 /* AppDelegate.swift in Sources */,
 				E595038120B05AE0007993B1 /* User.swift in Sources */,
 				E595038320B05B1F007993B1 /* Repository.swift in Sources */,
+				E5932C6020B993FB00BF7D5D /* DeviceUtil.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

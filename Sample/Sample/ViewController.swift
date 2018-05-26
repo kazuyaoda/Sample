@@ -112,6 +112,12 @@ extension ViewController: WKNavigationDelegate {
             return
         }
         
+        if DeviceUtil.checkReachability(hostName: url.host!) {
+            print("接続できます")
+        } else {
+            print("接続できません")
+        }
+        
         print(url)
         
         if url.absoluteString.range(of: "//itunes.apple.com/") != nil {
