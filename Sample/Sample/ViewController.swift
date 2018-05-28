@@ -47,11 +47,11 @@ class ViewController: UIViewController {
         request.httpMethod = "GET"
         
         // 例えば、xcode上で追加したファイルを開いてみる。
-        let path: String = Bundle.main.path(forResource: "funny", ofType: ".gif")!
-        let url = URL(fileURLWithPath: path)
-        self.webView.loadFileURL(url, allowingReadAccessTo: url)
+//        let path: String = Bundle.main.path(forResource: "funny", ofType: ".gif")!
+//        let url = URL(fileURLWithPath: path)
+//        self.webView.loadFileURL(url, allowingReadAccessTo: url)
         
-//        self.webView.load(request)
+        self.webView.load(request)
         
         self.createControlParts()
         
@@ -111,6 +111,9 @@ class ViewController: UIViewController {
         } else {
             print("接続できません")
         }
+        
+        let customView = LoadingWebView(frame: CGRect(x: 0.0, y: 0.0, width: 300, height: 400))
+        self.view.addSubview(customView)
     }
     
     @objc private func goForward() {

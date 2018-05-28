@@ -31,6 +31,9 @@
 		E595039120B0628E007993B1 /* GitHubAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = E595039020B0628D007993B1 /* GitHubAPI.swift */; };
 		E5A1EA0020BC2CFB0049B2F5 /* UIImage+Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A1E9FF20BC2CFB0049B2F5 /* UIImage+Util.swift */; };
 		E5A1EA0220BC3A7E0049B2F5 /* funny.gif in Resources */ = {isa = PBXBuildFile; fileRef = E5A1EA0120BC3A7D0049B2F5 /* funny.gif */; };
+		E5A1EA0520BC46110049B2F5 /* LoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A1EA0320BC46110049B2F5 /* LoadingViewController.swift */; };
+		E5A1EA0620BC46110049B2F5 /* LoadingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5A1EA0420BC46110049B2F5 /* LoadingViewController.xib */; };
+		E5A1EA0820BC46CE0049B2F5 /* LoadingWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A1EA0720BC46CE0049B2F5 /* LoadingWebView.swift */; };
 		E5D9C4A620B6E2D000803E25 /* FileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D9C4A420B6E2D000803E25 /* FileViewController.swift */; };
 		E5D9C4A720B6E2D000803E25 /* FileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5D9C4A520B6E2D000803E25 /* FileViewController.xib */; };
 		E5D9C4AA20B6EE2800803E25 /* SampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D9C4A820B6EE2800803E25 /* SampleViewController.swift */; };
@@ -89,6 +92,9 @@
 		E595039020B0628D007993B1 /* GitHubAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubAPI.swift; sourceTree = "<group>"; };
 		E5A1E9FF20BC2CFB0049B2F5 /* UIImage+Util.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Util.swift"; sourceTree = "<group>"; };
 		E5A1EA0120BC3A7D0049B2F5 /* funny.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = funny.gif; sourceTree = "<group>"; };
+		E5A1EA0320BC46110049B2F5 /* LoadingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingViewController.swift; sourceTree = "<group>"; };
+		E5A1EA0420BC46110049B2F5 /* LoadingViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoadingViewController.xib; sourceTree = "<group>"; };
+		E5A1EA0720BC46CE0049B2F5 /* LoadingWebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingWebView.swift; sourceTree = "<group>"; };
 		E5D9C4A420B6E2D000803E25 /* FileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileViewController.swift; sourceTree = "<group>"; };
 		E5D9C4A520B6E2D000803E25 /* FileViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FileViewController.xib; sourceTree = "<group>"; };
 		E5D9C4A820B6EE2800803E25 /* SampleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleViewController.swift; sourceTree = "<group>"; };
@@ -154,6 +160,9 @@
 		E534210B20ADBCFC001A8CD7 = {
 			isa = PBXGroup;
 			children = (
+				E5A1EA0720BC46CE0049B2F5 /* LoadingWebView.swift */,
+				E5A1EA0320BC46110049B2F5 /* LoadingViewController.swift */,
+				E5A1EA0420BC46110049B2F5 /* LoadingViewController.xib */,
 				E5D9C4A820B6EE2800803E25 /* SampleViewController.swift */,
 				E5D9C4A920B6EE2800803E25 /* SampleViewController.xib */,
 				E534211620ADBCFC001A8CD7 /* Sample */,
@@ -381,6 +390,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E5A1EA0620BC46110049B2F5 /* LoadingViewController.xib in Resources */,
 				E534212220ADBCFD001A8CD7 /* LaunchScreen.storyboard in Resources */,
 				E534211F20ADBCFD001A8CD7 /* Assets.xcassets in Resources */,
 				E5D9C4A720B6E2D000803E25 /* FileViewController.xib in Resources */,
@@ -478,6 +488,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E5A1EA0820BC46CE0049B2F5 /* LoadingWebView.swift in Sources */,
 				E595038820B05D40007993B1 /* GitHubClientError.swift in Sources */,
 				E595038A20B05DEA007993B1 /* GitHubAPIError.swift in Sources */,
 				E5D9C4A620B6E2D000803E25 /* FileViewController.swift in Sources */,
@@ -485,6 +496,7 @@
 				E5D9C4AA20B6EE2800803E25 /* SampleViewController.swift in Sources */,
 				E5A1EA0020BC2CFB0049B2F5 /* UIImage+Util.swift in Sources */,
 				E516597A20B2E82100B37BA3 /* LocalFileRepository.swift in Sources */,
+				E5A1EA0520BC46110049B2F5 /* LoadingViewController.swift in Sources */,
 				E595039120B0628E007993B1 /* GitHubAPI.swift in Sources */,
 				E516597720B2E7D000B37BA3 /* LocalObject.swift in Sources */,
 				E534211A20ADBCFC001A8CD7 /* ViewController.swift in Sources */,
