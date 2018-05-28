@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" systemVersion="17A277" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -9,7 +13,7 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Sample" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -19,6 +23,45 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="215" y="41"/>
+        </scene>
+        <!--OpenCV View Controller-->
+        <scene sceneID="4tp-7U-owM">
+            <objects>
+                <viewController id="a1F-sZ-Iho" customClass="OpenCVViewController" customModule="Sample" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="dVL-gw-VXm">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xU9-3s-4mc">
+                                <rect key="frame" x="163" y="40" width="51" height="31"/>
+                                <connections>
+                                    <action selector="myAction:" destination="a1F-sZ-Iho" eventType="valueChanged" id="i6I-Kc-GrX"/>
+                                </connections>
+                            </switch>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="cgK-Bk-5x5">
+                                <rect key="frame" x="0.0" y="99" width="375" height="568"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="cgK-Bk-5x5" firstAttribute="leading" secondItem="UoA-oi-NUS" secondAttribute="leading" id="88o-8K-paN"/>
+                            <constraint firstItem="xU9-3s-4mc" firstAttribute="top" secondItem="UoA-oi-NUS" secondAttribute="top" constant="20" id="aFv-aD-g5K"/>
+                            <constraint firstItem="xU9-3s-4mc" firstAttribute="centerX" secondItem="dVL-gw-VXm" secondAttribute="centerX" id="acn-1u-vVZ"/>
+                            <constraint firstItem="cgK-Bk-5x5" firstAttribute="top" secondItem="xU9-3s-4mc" secondAttribute="bottom" constant="28" id="l7D-SE-P1N"/>
+                            <constraint firstItem="cgK-Bk-5x5" firstAttribute="trailing" secondItem="UoA-oi-NUS" secondAttribute="trailing" id="pp8-Xn-m4Q"/>
+                            <constraint firstItem="cgK-Bk-5x5" firstAttribute="bottom" secondItem="UoA-oi-NUS" secondAttribute="bottom" id="rqZ-Gi-a2r"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="UoA-oi-NUS"/>
+                    </view>
+                    <connections>
+                        <outlet property="_imageView" destination="cgK-Bk-5x5" id="zXm-i5-6Dz"/>
+                        <outlet property="_switch" destination="xU9-3s-4mc" id="Tzs-uY-iy9"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="utw-RV-Fvh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="517.60000000000002" y="448.42578710644682"/>
         </scene>
     </scenes>
 </document>

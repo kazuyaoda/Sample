@@ -16,6 +16,17 @@ class ViewController: UIViewController {
     var backButton: UIButton!
     private var _observer = [NSKeyValueObservation]()
     
+    func getData() -> Data? {
+        
+        guard let path = Bundle.main.path(forResource: "funny", ofType: "gif") else { return nil }
+        
+        let url = URL(fileURLWithPath: path)
+        
+        guard let data = try? Data(contentsOf: url) else { return nil }
+        
+        return data
+    }
+    
     override func loadView() {
         super.loadView()
 
@@ -35,9 +46,13 @@ class ViewController: UIViewController {
         var request = URLRequest(url: URL(string: "https://www.google.co.jp")!)
         request.httpMethod = "GET"
         
-//        let bodyData = "terminal_id" + UIDevice.current.identifierForVendor!.uuidString
-//        request.httpBody = bodyData.data(using: .utf8)
-        self.webView.load(request)
+        // 例えば、xcode上で追加したファイルを開いてみる。
+        let path: String = Bundle.main.path(forResource: "funny", ofType: ".gif")!
+        let url = URL(fileURLWithPath: path)
+        self.webView.loadFileURL(url, allowingReadAccessTo: url)
+        
+//        self.webView.load(request)
+        
         self.createControlParts()
         
         _observer.append(webView.observe(\.estimatedProgress, options: .new) { _, change in
@@ -88,8 +103,14 @@ class ViewController: UIViewController {
     }
     
     @objc private func goBack() {
-        let viewController = SampleViewController()
-        present(viewController, animated: true, completion: nil)
+//        let viewController = SampleViewController()
+//        present(viewController, animated: true, completion: nil)
+        
+        if DeviceUtil.checkReachability(hostName: "https://www.google.com") {
+            print("接続できます")
+        } else {
+            print("接続できません")
+        }
     }
     
     @objc private func goForward() {
@@ -112,14 +133,8 @@ extension ViewController: WKNavigationDelegate {
             return
         }
         
-        if DeviceUtil.checkReachability(hostName: url.host!) {
-            print("接続できます")
-        } else {
-            print("接続できません")
-        }
-        
         print(url)
-        
+        /*
         if url.absoluteString.range(of: "//itunes.apple.com/") != nil {
             if UIApplication.shared.responds(to: #selector(UIApplication.open(_:options:completionHandler:))) {
                 UIApplication.shared.open(url,
@@ -168,7 +183,7 @@ extension ViewController: WKNavigationDelegate {
         case .reload:
             break
         } // 全要素列挙した場合はdefault不要 (足りない要素が追加されたときにエラーを吐かせる目的)
-        
+        */
         decisionHandler(.allow)
     }
 }

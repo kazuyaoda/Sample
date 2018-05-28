@@ -29,6 +29,8 @@
 		E595038D20B0601D007993B1 /* GitHubRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E595038C20B0601D007993B1 /* GitHubRequest.swift */; };
 		E595038F20B06105007993B1 /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = E595038E20B06105007993B1 /* HTTPMethod.swift */; };
 		E595039120B0628E007993B1 /* GitHubAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = E595039020B0628D007993B1 /* GitHubAPI.swift */; };
+		E5A1EA0020BC2CFB0049B2F5 /* UIImage+Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A1E9FF20BC2CFB0049B2F5 /* UIImage+Util.swift */; };
+		E5A1EA0220BC3A7E0049B2F5 /* funny.gif in Resources */ = {isa = PBXBuildFile; fileRef = E5A1EA0120BC3A7D0049B2F5 /* funny.gif */; };
 		E5D9C4A620B6E2D000803E25 /* FileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D9C4A420B6E2D000803E25 /* FileViewController.swift */; };
 		E5D9C4A720B6E2D000803E25 /* FileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5D9C4A520B6E2D000803E25 /* FileViewController.xib */; };
 		E5D9C4AA20B6EE2800803E25 /* SampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D9C4A820B6EE2800803E25 /* SampleViewController.swift */; };
@@ -85,6 +87,8 @@
 		E595038C20B0601D007993B1 /* GitHubRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubRequest.swift; sourceTree = "<group>"; };
 		E595038E20B06105007993B1 /* HTTPMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
 		E595039020B0628D007993B1 /* GitHubAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubAPI.swift; sourceTree = "<group>"; };
+		E5A1E9FF20BC2CFB0049B2F5 /* UIImage+Util.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Util.swift"; sourceTree = "<group>"; };
+		E5A1EA0120BC3A7D0049B2F5 /* funny.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = funny.gif; sourceTree = "<group>"; };
 		E5D9C4A420B6E2D000803E25 /* FileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileViewController.swift; sourceTree = "<group>"; };
 		E5D9C4A520B6E2D000803E25 /* FileViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FileViewController.xib; sourceTree = "<group>"; };
 		E5D9C4A820B6EE2800803E25 /* SampleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleViewController.swift; sourceTree = "<group>"; };
@@ -142,6 +146,7 @@
 			children = (
 				E516597E20B2F31300B37BA3 /* Date+CommonUtil.swift */,
 				E5932C5F20B993FB00BF7D5D /* DeviceUtil.swift */,
+				E5A1E9FF20BC2CFB0049B2F5 /* UIImage+Util.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -188,6 +193,7 @@
 				E534212320ADBCFD001A8CD7 /* Info.plist */,
 				E5D9C4A420B6E2D000803E25 /* FileViewController.swift */,
 				E5D9C4A520B6E2D000803E25 /* FileViewController.xib */,
+				E5A1EA0120BC3A7D0049B2F5 /* funny.gif */,
 			);
 			path = Sample;
 			sourceTree = "<group>";
@@ -338,6 +344,7 @@
 				TargetAttributes = {
 					E534211320ADBCFC001A8CD7 = {
 						CreatedOnToolsVersion = 9.3.1;
+						LastSwiftMigration = 0930;
 					};
 					E534212720ADBCFD001A8CD7 = {
 						CreatedOnToolsVersion = 9.3.1;
@@ -379,6 +386,7 @@
 				E5D9C4A720B6E2D000803E25 /* FileViewController.xib in Resources */,
 				E534211D20ADBCFC001A8CD7 /* Main.storyboard in Resources */,
 				E5D9C4AB20B6EE2800803E25 /* SampleViewController.xib in Resources */,
+				E5A1EA0220BC3A7E0049B2F5 /* funny.gif in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -475,6 +483,7 @@
 				E5D9C4A620B6E2D000803E25 /* FileViewController.swift in Sources */,
 				E595038D20B0601D007993B1 /* GitHubRequest.swift in Sources */,
 				E5D9C4AA20B6EE2800803E25 /* SampleViewController.swift in Sources */,
+				E5A1EA0020BC2CFB0049B2F5 /* UIImage+Util.swift in Sources */,
 				E516597A20B2E82100B37BA3 /* LocalFileRepository.swift in Sources */,
 				E595039120B0628E007993B1 /* GitHubAPI.swift in Sources */,
 				E516597720B2E7D000B37BA3 /* LocalObject.swift in Sources */,
@@ -662,8 +671,13 @@
 			baseConfigurationReference = 885494FBCBA9B77D77D7AC76 /* Pods-Sample.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 652CM8YVDB;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = Sample/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -671,6 +685,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = oda.kazuya.Sample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -681,8 +697,13 @@
 			baseConfigurationReference = 7407D0207ADCF2B39B44755B /* Pods-Sample.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 652CM8YVDB;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = Sample/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -690,6 +711,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = oda.kazuya.Sample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
